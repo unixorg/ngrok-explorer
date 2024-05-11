@@ -31,7 +31,7 @@ Ngrok-explorer :mag_right: is a script written in `python3` that looks for priva
     Install [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) and [git](https://git-scm.com/download/win)
 
     - `git clone https://github.com/unixorg/ngrok-explorer`
-    - `cd ngrok-miner`
+    - `cd ngrok-explorer`
     - `pip install -r requirements.txt`
     - `python main.py`
 
