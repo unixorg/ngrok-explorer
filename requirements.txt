@@ -1,0 +1,12 @@
+asyncio-dgram==2.1.2
+certifi==2024.2.2
+charset-normalizer==3.3.2
+colorama==0.4.6
+dnspython==2.6.1
+idna==3.6
+mcstatus==11.1.1
+minecraftinfo==2.1
+prettytable==3.10.0
+requests==2.31.0
+urllib3==2.2.1
+wcwidth==0.2.13
