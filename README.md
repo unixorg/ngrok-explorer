@@ -1,4 +1,4 @@
-![image](image.png)
+![image](images/image.png)
 
 ![GitHub License](https://img.shields.io/github/license/unixorg/ngrok-explorer?style=flat-square)
 ![Python](https://img.shields.io/badge/3.8%2B-python?style=flat-square&label=python&color=blue)
