@@ -14,6 +14,9 @@ WRITTEN TO DEMONSTRATE VULNERABILITY.
 # :arrow_down: About
 Ngrok-explorer :mag_right: is a script written in `python3` that looks for private minecraft servers that use ngrok.
 
+# :framed_picture: Screenshot
+![screenshot](images/screenshot.png)
+
 # :memo: Requirements
 + mcstatus
 + minecraftinfo
