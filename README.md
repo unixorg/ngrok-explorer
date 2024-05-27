@@ -3,6 +3,7 @@
 ![GitHub License](https://img.shields.io/github/license/unixorg/ngrok-explorer?style=flat-square)
 ![Python](https://img.shields.io/badge/3.8%2B-python?style=flat-square&label=python&color=blue)
 ![GitHub Repo stars](https://img.shields.io/github/stars/unixorg/ngrok-explorer?style=flat-square&logo=github&logoColor=black&color=yellow)
+![GitHub Release](https://img.shields.io/github/v/release/unixorg/ngrok-explorer?style=flat-square&color=red)
 
 ## :heavy_exclamation_mark: WARNING :heavy_exclamation_mark:
 ```
