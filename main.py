@@ -66,7 +66,7 @@ class Ngrok_Explorer:
                             ["Ping:", f"{int(server.ping())} ms"],
                             ["Player(s) online:", f"{server.status().players.online}"],
                             ["Version:", mcje_server(self.host, port).version],
-                            ["Motd:", mcreplace(f"{server.status().description }")],
+                            ["Motd:", mcreplace(f"{server.status().description}")],
                         ]
                     )
                     print(table)
