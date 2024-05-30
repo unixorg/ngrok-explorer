@@ -5,6 +5,7 @@ from threading import Thread
 from mcstatus import JavaServer
 from minecraftinfo import mcje_server
 from colorama import Fore
+from mccolors import mcreplace
 from prettytable import PrettyTable
 import socket
 import config
@@ -65,7 +66,7 @@ class Ngrok_Explorer:
                             ["Ping:", f"{int(server.ping())} ms"],
                             ["Player(s) online:", f"{server.status().players.online}"],
                             ["Version:", mcje_server(self.host, port).version],
-                            ["Motd:", f"{server.status().description }"],
+                            ["Motd:", mcreplace(f"{server.status().description }")],
                         ]
                     )
                     print(table)
