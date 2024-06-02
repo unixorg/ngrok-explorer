@@ -65,6 +65,7 @@ class Ngrok_Explorer:
                         [
                             ["Ping:", f"{int(server.ping())} ms"],
                             ["Player(s) online:", f"{server.status().players.online}"],
+                            ["List of players:", f'[{", ".join(player.name for player in mcje_server(self.host, port).players)}]'],
                             ["Version:", mcje_server(self.host, port).version],
                             ["Motd:", mcreplace(f"{server.status().description}")],
                         ]
