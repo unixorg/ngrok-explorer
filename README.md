@@ -22,6 +22,7 @@ Ngrok-explorer :mag_right: is a script written in `python3` that looks for priva
 + mcstatus
 + minecraftinfo
 + colorama
++ mccolors
 + prettytable
 
 # :wrench: Installation
