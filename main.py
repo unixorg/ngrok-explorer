@@ -80,7 +80,7 @@ class Ngrok_Explorer:
             thread = Thread(target = check_connection, args = (self, port))
             thread.start()
 
-        print(Fore.GREEN+f"\nDone! Found {counter.get_count()} servers.")
+        print(Fore.GREEN+f"\nDone! Found {counter.get_count()} servers."+Fore.RESET)
 
     def main(self):
         system("cls" if name == "nt" else "clear")
