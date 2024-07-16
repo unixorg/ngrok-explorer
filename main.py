@@ -22,6 +22,7 @@ class Counter:
 
 class Ngrok_Explorer:
     def __init__(self):
+        self.counter = Counter()
         self.banner = Fore.GREEN+"""
 ███╗   ██╗ ██████╗ ██████╗  ██████╗ ██╗  ██╗     ███████╗██╗  ██╗██████╗ ██╗      ██████╗ ██████╗ ███████╗██████╗ 
 ████╗  ██║██╔════╝ ██╔══██╗██╔═══██╗██║ ██╔╝     ██╔════╝╚██╗██╔╝██╔══██╗██║     ██╔═══██╗██╔══██╗██╔════╝██╔══██╗
@@ -44,8 +45,6 @@ class Ngrok_Explorer:
 
     # find and connect to a server
     def brute_force(self):
-        counter = Counter()
-
         for port in range(10000, 20000):
             try:
                 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as con:
@@ -56,7 +55,7 @@ class Ngrok_Explorer:
                 continue
 
             # retrieving information about the minecraft server
-            def check_connection(self, port):
+            def get_info(self, port):
                 try:
                     server = JavaServer.lookup(f"{self.host}:{port}")
                     table = PrettyTable()
@@ -72,20 +71,19 @@ class Ngrok_Explorer:
                         ]
                     )
                     print(table)
-                    counter.increase()
+                    self.counter.increase()
 
                 except:
                     pass
 
-            thread = Thread(target = check_connection, args = (self, port))
+            thread = Thread(target = get_info, args = (self, port))
             thread.start()
-
-        print(Fore.GREEN+f"\nDone! Found {counter.get_count()} servers."+Fore.RESET)
 
     def main(self):
         system("cls" if name == "nt" else "clear")
         input(self.banner+Fore.CYAN+"\n[PRESS ENTER TO START]"+Fore.RESET)
         self.brute_force()
+        print(Fore.GREEN+f"\nDone! Found {self.counter.get_count()} servers."+Fore.RESET)
 
 if __name__ == "__main__":
     Ngrok_Explorer().main()
