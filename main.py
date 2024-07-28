@@ -43,6 +43,28 @@ class Ngrok_Explorer:
 +---------------------------------------------------+"""
         self.host = f"{config.first_count}.tcp.{config.region}.ngrok.io"
 
+    # retrieving information about the minecraft server
+    def get_info(self, port):
+        try:
+            server = JavaServer.lookup(f"{self.host}:{port}")
+            table = PrettyTable()
+            table.field_names = ("Server:", f"{self.host}:{port}")
+            table.add_rows(
+                [
+                    ["Ping:", f"{int(server.ping())} ms"],
+                    ["Player(s) online:", f"{server.status().players.online}"],
+                    ["List of players:", f'[{", ".join(player.name for player in mcje_server(self.host, port).players)}]'],
+                    ["Version:", mcje_server(self.host, port).version],
+                    ["Protocol:", mcje_server(self.host, port).protocol],
+                    ["Motd:", mcreplace(f"{server.status().description }")],
+                ]
+            )
+            print(table)
+            self.counter.increase()
+
+        except:
+            pass
+
     # find and connect to a server
     def brute_force(self):
         for port in range(10000, 20000):
@@ -50,34 +72,12 @@ class Ngrok_Explorer:
                 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as con:
                     con.settimeout(config.connection_time)
                     con.connect((self.host, port))
-        
+
+                thread = Thread(target = self.get_info, args = (port,))
+                thread.start()
+                        
             except:
                 continue
-
-            # retrieving information about the minecraft server
-            def get_info(self, port):
-                try:
-                    server = JavaServer.lookup(f"{self.host}:{port}")
-                    table = PrettyTable()
-                    table.field_names = ("Server:", f"{self.host}:{port}")
-                    table.add_rows(
-                        [
-                            ["Ping:", f"{int(server.ping())} ms"],
-                            ["Player(s) online:", f"{server.status().players.online}"],
-                            ["List of players:", f'[{", ".join(player.name for player in mcje_server(self.host, port).players)}]'],
-                            ["Version:", mcje_server(self.host, port).version],
-                            ["Protocol:", mcje_server(self.host, port).protocol],
-                            ["Motd:", mcreplace(f"{server.status().description}")],
-                        ]
-                    )
-                    print(table)
-                    self.counter.increase()
-
-                except:
-                    pass
-
-            thread = Thread(target = get_info, args = (self, port))
-            thread.start()
 
     def main(self):
         system("cls" if name == "nt" else "clear")
